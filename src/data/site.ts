@@ -12,14 +12,6 @@ export function getLatestWebsite(): WebsiteProject {
 
 export const websites: WebsiteProject[] = [
   {
-    id: "dentist-lab",
-    title: "Dentist Lab",
-    description:
-      "A polished business website for a dental laboratory — clean layout, trust-focused design, and seamless client experience.",
-    url: "https://dentistlab.odoo.com",
-    tags: ["Odoo", "Business", "Healthcare"],
-  },
-  {
     id: "sparkle-home-cleaning",
     title: "Sparkle Home Cleaning",
     description:
@@ -36,11 +28,19 @@ export const websites: WebsiteProject[] = [
     tags: ["3D", "Interactive", "Creative"],
   },
   {
-    id: "3d-maaza",
-    title: "3D Maaza",
+    id: "3d-robot-landing-page",
+    title: "3D Robot Landing Page",
     description:
-      "A striking 3D showcase built to feel cinematic, modern, and memorable for visitors exploring the experience.",
-    url: "https://maaza3d.vercel.app/",
+      "A futuristic 3D robot landing page with immersive animations, interactive elements, and a cutting-edge tech aesthetic.",
+    url: "https://3drobotlandingpage.vercel.app/",
+    tags: ["3D", "Landing Page", "Robotics"],
+  },
+  {
+    id: "3d-lithos",
+    title: "Lithos",
+    description:
+      "A premium 3D lithography showcase with cinematic visuals, smooth interactions, and a memorable brand experience.",
+    url: "https://3-d-lithos.vercel.app/",
     tags: ["3D", "Animation", "Brand Experience"],
   },
 ];
