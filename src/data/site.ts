@@ -28,20 +28,20 @@ export const websites: WebsiteProject[] = [
     tags: ["3D", "Interactive", "Creative"],
   },
   {
-    id: "3d-robot-landing-page",
-    title: "3D Robot Landing Page",
-    description:
-      "A futuristic 3D robot landing page with immersive animations, interactive elements, and a cutting-edge tech aesthetic.",
-    url: "https://3drobotlandingpage.vercel.app/",
-    tags: ["3D", "Landing Page", "Robotics"],
-  },
-  {
     id: "3d-lithos",
     title: "Lithos",
     description:
       "A premium 3D lithography showcase with cinematic visuals, smooth interactions, and a memorable brand experience.",
     url: "https://3-d-lithos.vercel.app/",
     tags: ["3D", "Animation", "Brand Experience"],
+  },
+  {
+    id: "tanuj-edits",
+    title: "Tanuj Edits",
+    description:
+      "A cinematic portfolio for video editor Tanuj — featuring reels, short-form content, 3-step process, and motion/graphic design services with a DM-to-book flow.",
+    url: "https://tanujedits.vercel.app/",
+    tags: ["Portfolio", "Video Editing", "Creative"],
   },
 ];
 
