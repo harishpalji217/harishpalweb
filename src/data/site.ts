@@ -7,25 +7,17 @@ export interface WebsiteProject {
 }
 
 export function getLatestWebsite(): WebsiteProject {
-  return websites[websites.length - 1];
+  return websites[0];
 }
 
 export const websites: WebsiteProject[] = [
   {
-    id: "sparkle-home-cleaning",
-    title: "Sparkle Home Cleaning",
+    id: "tanuj-edits",
+    title: "Tanuj Edits",
     description:
-      "A professional cleaning services website with transparent pricing, before/after showcases, and conversion-focused booking flows.",
-    url: "https://sparklehomecleaning.vercel.app/",
-    tags: ["Landing Page", "Business", "Services"],
-  },
-  {
-    id: "3d-basket-ball",
-    title: "3D Basket Ball",
-    description:
-      "An immersive 3D basketball experience with polished motion, interactive visuals, and a modern showcase feel.",
-    url: "https://basketbally68.vercel.app/",
-    tags: ["3D", "Interactive", "Creative"],
+      "A cinematic portfolio for video editor Tanuj — featuring reels, short-form content, 3-step process, and motion/graphic design services with a DM-to-book flow.",
+    url: "https://tanujedits.vercel.app/",
+    tags: ["Portfolio", "Video Editing", "Creative"],
   },
   {
     id: "3d-lithos",
@@ -36,12 +28,28 @@ export const websites: WebsiteProject[] = [
     tags: ["3D", "Animation", "Brand Experience"],
   },
   {
-    id: "tanuj-edits",
-    title: "Tanuj Edits",
+    id: "grantly",
+    title: "Grantly",
     description:
-      "A cinematic portfolio for video editor Tanuj — featuring reels, short-form content, 3-step process, and motion/graphic design services with a DM-to-book flow.",
-    url: "https://tanujedits.vercel.app/",
-    tags: ["Portfolio", "Video Editing", "Creative"],
+      "A unified scholarship discovery and management platform — helping students discover, track, and organize scholarships in one calm, intuitive place.",
+    url: "https://harishpalji217.github.io/grantly/",
+    tags: ["EdTech", "Platform", "Discovery"],
+  },
+  {
+    id: "amazon-blogpost",
+    title: "Amazon Deals",
+    description:
+      "An automated Amazon affiliate deals & price-drop blog platform featuring curated offers, instant price updates, and clean product showcases.",
+    url: "https://amz.jadion.net/",
+    tags: ["Affiliate", "Blog", "Deals"],
+  },
+  {
+    id: "sparkle-home-cleaning",
+    title: "Sparkle Home Cleaning",
+    description:
+      "A professional cleaning services website with transparent pricing, before/after showcases, and conversion-focused booking flows.",
+    url: "https://sparklehomecleaning.vercel.app/",
+    tags: ["Landing Page", "Business", "Services"],
   },
 ];
 

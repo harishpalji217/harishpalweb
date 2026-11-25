@@ -11,10 +11,17 @@ const navLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-card-border py-16">
-      <div className="pointer-events-none absolute bottom-0 left-1/2 h-64 w-96 -translate-x-1/2 rounded-full bg-accent/10 blur-[100px] animate-pulse-glow" />
+    <footer className="relative overflow-hidden border-t border-card-border py-12 sm:py-16">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-1/2 h-64 w-96 -translate-x-1/2 animate-pulse-glow"
+        style={{
+          background:
+            "radial-gradient(ellipse at bottom, rgba(59,130,246,0.18), transparent 70%)",
+        }}
+      />
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-10 md:flex-row md:items-start">
           <div className="text-center md:text-left">
             <p className="font-display text-2xl font-bold text-white">

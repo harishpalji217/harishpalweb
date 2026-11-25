@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-@import url("https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@400,500,600,700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,8 +24,11 @@ body::before {
   inset: 0;
   z-index: 50;
   pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  background-size: 160px 160px;
+  background-repeat: repeat;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  transform: translateZ(0);
 }
 
 @layer utilities {
@@ -61,7 +61,7 @@ body::before {
 /* Custom Utilities */
 .bg-grid-blue {
   background-size: 50px 50px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(59, 130, 246, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
 }
@@ -83,18 +83,31 @@ body::before {
 }
 
 .glass-liquid {
-  background: rgba(10, 10, 15, 0.45);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(10, 10, 15, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  transition: border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
 }
 
 .glass-liquid:hover {
-  background: rgba(15, 15, 20, 0.55);
-  border-color: rgba(59, 130, 246, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.1), inset 0 0 15px rgba(255, 255, 255, 0.02);
+  background: rgba(15, 15, 22, 0.82);
+  border-color: rgba(59, 130, 246, 0.28);
+  box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.14), inset 0 0 15px rgba(255, 255, 255, 0.02);
+}
+
+/* GPU-friendly card surface for iframe cards (no nested backdrop-filter over scaled iframes) */
+.glass-card-gpu {
+  background: linear-gradient(160deg, rgba(18, 20, 28, 0.96) 0%, rgba(10, 11, 16, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.55);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass-card-gpu:hover {
+  border-color: rgba(59, 130, 246, 0.38);
+  box-shadow: 0 20px 44px -12px rgba(59, 130, 246, 0.22), inset 0 0 18px rgba(59, 130, 246, 0.04);
 }
 
 /* Glass shine reflection animation */
@@ -120,6 +133,8 @@ body::before {
   );
   transform: skewX(-25deg);
   transition: none;
+  pointer-events: none;
+  z-index: 25;
 }
 
 .glass-shine-container:hover::before {
@@ -129,6 +144,65 @@ body::before {
 @keyframes shine {
   100% {
     left: 150%;
+  }
+}
+
+/* Pure GPU compositor animations for portfolio cards & hero particles */
+@keyframes card-float {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@keyframes card-aura {
+  0%, 100% {
+    opacity: 0.22;
+    transform: scale3d(0.98, 0.98, 1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale3d(1.015, 1.015, 1);
+  }
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate3d(0, -36px, 0);
+    opacity: 0.5;
+  }
+}
+
+.animate-card-float {
+  animation: card-float var(--float-duration, 5s) ease-in-out var(--float-delay, 0s) infinite;
+  will-change: transform;
+}
+
+.animate-card-float:hover {
+  animation-play-state: paused;
+}
+
+.animate-card-aura {
+  animation: card-aura var(--float-duration, 5s) ease-in-out var(--float-delay, 0s) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-particle-float {
+  animation: particle-float var(--p-duration, 6s) ease-in-out var(--p-delay, 0s) infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-card-float,
+  .animate-card-aura,
+  .animate-particle-float {
+    animation: none;
   }
 }
 
@@ -150,5 +224,3 @@ body::before {
 .scrollbar-glass::-webkit-scrollbar-thumb:hover {
   background: rgba(59, 130, 246, 0.45);
 }
-
-

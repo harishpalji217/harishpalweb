@@ -10,8 +10,8 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-3xl px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
             Frequently Asked Questions

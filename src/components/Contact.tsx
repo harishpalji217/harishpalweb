@@ -32,10 +32,10 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32">
+    <section id="contact" className="relative py-16 sm:py-24 lg:py-32">
       <div className="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent" />
 
-      <div className="relative mx-auto max-w-2xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center">
           <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
             Let&apos;s Build Something Great
@@ -93,7 +93,7 @@ export function Contact() {
                 key="form"
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="glass-liquid glass-shine-container space-y-5 rounded-2xl p-8 shadow-2xl"
+                className="glass-liquid glass-shine-container space-y-5 rounded-2xl p-5 sm:p-8 shadow-2xl"
               >
                 <Field label="Name" name="name" required />
                 <Field label="Email" name="email" type="email" required />

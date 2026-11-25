@@ -7,21 +7,21 @@ export function TrustBar() {
   const doubled = [...clientLogos, ...clientLogos];
 
   return (
-    <section className="relative overflow-hidden py-20 lg:py-28 bg-[#030712] bg-grid-blue border-y border-white/5">
+    <section className="relative overflow-hidden py-14 sm:py-20 lg:py-28 bg-[#030712] bg-grid-blue border-y border-white/5">
       {/* Radial overlay to fade out grid borders at the edges */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(3,7,18,0.2)_0%,rgba(3,7,18,1)_100%)]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center">
-          <h2 className="font-display text-2xl font-bold uppercase tracking-wider text-lime sm:text-3xl text-glow-lime">
+          <h2 className="font-display text-xl font-bold uppercase tracking-wider text-lime sm:text-3xl text-glow-lime">
             Look who&apos;s hiring from us
           </h2>
         </Reveal>
 
         {/* Large semi-transparent container card with vector logos */}
         <Reveal delay={0.2}>
-          <div className="mt-10 rounded-2xl border border-white/10 bg-[#090d16]/75 p-8 backdrop-blur-xl shadow-2xl">
-            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 items-center justify-items-center opacity-70">
+          <div className="mt-8 sm:mt-10 rounded-2xl border border-white/10 bg-[#090d16]/85 p-5 sm:p-8 backdrop-blur-md shadow-2xl">
+            <div className="grid grid-cols-2 gap-5 sm:gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 items-center justify-items-center opacity-75">
               {/* Google */}
               <div className="flex items-center gap-1.5 transition-opacity hover:opacity-100 duration-300">
                 <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor">
@@ -65,7 +65,7 @@ export function TrustBar() {
               </div>
 
               {/* 100xEngineers */}
-              <div className="flex items-center transition-opacity hover:opacity-100 duration-300">
+              <div className="col-span-2 sm:col-span-1 flex items-center transition-opacity hover:opacity-100 duration-300">
                 <span className="rounded bg-white/10 px-2 py-1 font-display text-[10px] font-extrabold tracking-widest text-white border border-white/5">100xEngineers</span>
               </div>
             </div>
@@ -77,7 +77,7 @@ export function TrustBar() {
           <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-20 w-24 bg-gradient-to-r from-[#030712] to-transparent" />
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-20 w-24 bg-gradient-to-l from-[#030712] to-transparent" />
           
-          <div className="flex animate-marquee gap-16 whitespace-nowrap">
+          <div className="flex animate-marquee gap-16 whitespace-nowrap will-change-transform">
             {doubled.map((logo, i) => (
               <span
                 key={`${logo}-${i}`}
